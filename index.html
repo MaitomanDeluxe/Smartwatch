@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>スマートウォッチ貸出管理</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="login-screen" class="screen active">
+        <div class="login-container">
+            <h1>Watch Rental</h1>
+            <p>パスワードを入力してください</p>
+            <input type="password" id="password-input" placeholder="••••••••">
+            <button id="login-button">ログイン</button>
+            <p id="error-message" class="error"></p>
+        </div>
+    </div>
+
+    <div id="app-screen" class="screen">
+        <div class="app-container">
+            <header>
+                <h1>貸出カレンダー</h1>
+                <div id="calendar-header">
+                    <button id="prev-month">&lt;</button>
+                    <h2 id="month-year"></h2>
+                    <button id="next-month">&gt;</button>
+                </div>
+            </header>
+            
+            <div id="calendar-weekdays">
+                <span>日</span><span>月</span><span>火</span><span>水</span><span>木</span><span>金</span><span>土</span>
+            </div>
+            <div id="calendar-grid"></div>
+
+            <div id="details-panel">
+                <h3 id="selected-date">日付を選択してください</h3>
+                <p>ステータス: <span id="status-text">-</span></p>
+                <button id="action-button" disabled>アクション</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
