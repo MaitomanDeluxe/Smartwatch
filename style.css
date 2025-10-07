@@ -1,0 +1,217 @@
+:root {
+    --primary-color: #007aff;
+    --background-color: #f0f2f5;
+    --container-bg: #ffffff;
+    --text-color: #333;
+    --applied-color: #28a745;
+    --not-applied-color: #e9ecef;
+    --border-color: #dee2e6;
+}
+
+body {
+    margin: 0;
+    font-family: 'Noto Sans JP', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.screen {
+    display: none;
+}
+
+.screen.active {
+    display: block;
+}
+
+/* ログイン画面 */
+.login-container {
+    background-color: var(--container-bg);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    text-align: center;
+    width: 300px;
+}
+
+.login-container h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+.login-container p {
+    margin-bottom: 20px;
+    color: #666;
+}
+
+#password-input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+#login-button {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+#login-button:hover {
+    background-color: #0056b3;
+}
+
+.error {
+    color: #dc3545;
+    font-size: 14px;
+    height: 20px;
+}
+
+/* メインアプリ画面 */
+.app-container {
+    width: 90%;
+    max-width: 800px;
+    background-color: var(--container-bg);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    padding: 25px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    margin: 0 0 15px 0;
+    font-size: 22px;
+}
+
+#calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#calendar-header button {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--primary-color);
+    padding: 0 15px;
+}
+
+#month-year {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#calendar-weekdays, #calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    text-align: center;
+}
+
+#calendar-weekdays span {
+    font-weight: bold;
+    color: #666;
+    padding-bottom: 10px;
+}
+
+.date-cell {
+    padding: 10px 0;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    border: 2px solid transparent;
+}
+
+.date-cell:hover {
+    transform: scale(1.05);
+}
+.date-cell.empty {
+    cursor: default;
+    background-color: transparent;
+}
+.date-cell.not-applied {
+    background-color: var(--not-applied-color);
+}
+.date-cell.applied {
+    background-color: var(--applied-color);
+    color: white;
+    font-weight: bold;
+}
+.date-cell.selected {
+    border-color: var(--primary-color);
+}
+.date-cell.today {
+    position: relative;
+}
+.date-cell.today::after {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+}
+.date-cell.applied.today::after {
+    background-color: white;
+}
+
+
+#details-panel {
+    margin-top: 25px;
+    padding: 20px;
+    background-color: var(--background-color);
+    border-radius: 8px;
+    text-align: center;
+}
+
+#details-panel h3 {
+    margin-top: 0;
+}
+
+#status-text {
+    font-weight: bold;
+}
+
+#action-button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+#action-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+#action-button.apply {
+    background-color: var(--primary-color);
+}
+#action-button.cancel {
+    background-color: #dc3545;
+}
